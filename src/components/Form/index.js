@@ -6,22 +6,10 @@ export default function Form({ onAddActivity, checked }) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
-    // if (data.isGoodWeather) {
-    //   data.isForGoodWeather = true;
-    // } else {
-    //   data.isForGoodWeather = false;
-    // }
-    //isChecked(event.target.checked);
     onAddActivity(data);
     event.target.reset();
     event.target.elements.activity__input.focus();
   }
-
-  // function handleCheck(e) {
-  //   let isChecked = e.target.checked;
-  //   if (isChecked)
-  //   // do whatever you want with isChecked value
-  // }
 
   return (
     <form onSubmit={handleSubmit} className="entry-form">
