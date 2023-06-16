@@ -1,20 +1,27 @@
 import "./Form.css";
 import Button from "../Button/index";
 console.log("test");
-export default function Form({ onAddActivity }) {
+export default function Form({ onAddActivity, checked }) {
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
-    if (data.isForGoodWeather) {
-      data.isForGoodWeather = true;
-    } else {
-      data.isForGoodWeather = false;
-    }
+    // if (data.isGoodWeather) {
+    //   data.isForGoodWeather = true;
+    // } else {
+    //   data.isForGoodWeather = false;
+    // }
+    //isChecked(event.target.checked);
     onAddActivity(data);
     event.target.reset();
     event.target.elements.activity__input.focus();
   }
+
+  // function handleCheck(e) {
+  //   let isChecked = e.target.checked;
+  //   if (isChecked)
+  //   // do whatever you want with isChecked value
+  // }
 
   return (
     <form onSubmit={handleSubmit} className="entry-form">
@@ -28,7 +35,12 @@ export default function Form({ onAddActivity }) {
           name="activity__input"
         ></input>
         <label for="checkbox">Good-weather activity:</label>
-        <input type="checkbox" id="checkbox"></input>
+        <input
+          type="checkbox"
+          id="checkbox"
+          checked={checked}
+          onChange={(event) => setChecked(event.target.checked)}
+        ></input>
       </formfield>
       <div className="entry-form__button-wrapper">
         <Button />
