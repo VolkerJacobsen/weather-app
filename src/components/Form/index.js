@@ -15,14 +15,14 @@ export default function Form({ onAddActivity, checked }) {
     <form onSubmit={handleSubmit} className="entry-form">
       <h2 className="entry-form__title">Add new Activity</h2>
       <formfield className="entry-form__fields">
-        <label for="activity__input">Name</label>
+        <label htmlFor="activity__input">Name</label>
         <input
           type="text"
           className="entry-form__field "
           id="activity__input"
           name="activity__input"
         ></input>
-        <label for="checkbox">Good-weather activity:</label>
+        <label htmlFor="checkbox">Good-weather activity:</label>
         <input
           type="checkbox"
           id="checkbox"
