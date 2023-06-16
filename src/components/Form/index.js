@@ -1,7 +1,7 @@
 import "./Form.css";
-import Button from "../components/Button/index.js";
+import Button from "../Button/index";
 console.log("test");
-export default function Form(onAddActivity) {
+export default function Form({ onAddActivity }) {
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -17,7 +17,7 @@ export default function Form(onAddActivity) {
   }
 
   return (
-    <form className="entry-form">
+    <form onSubmit={handleSubmit} className="entry-form">
       <h2 className="entry-form__title">Add new Activity</h2>
       <formfield className="entry-form__fields">
         <label for="activity__input">Name</label>
