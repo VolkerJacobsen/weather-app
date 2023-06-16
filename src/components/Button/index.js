@@ -1,6 +1,8 @@
+import "./Button.css";
+
 export default function Button() {
   return (
-    <button class="button" type="submit">
+    <button className="button" type="submit">
       Submit
     </button>
   );
