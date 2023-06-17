@@ -1,19 +1,18 @@
-import Activity from "../Activity/index";
-
-export default function List({ activities, isGoodWeather }) {
+export default function List({ activities, isGoodWeather, onDeleteActivity }) {
   return (
     <div className="entries-section__entries">
-      {isGoodWeather === true ? (
+      {isGoodWeather ? (
         <h2>The weather is awesome! Go outside and:</h2>
       ) : (
         <h2>Bad weather outside! Here's what you can do now:</h2>
       )}
       {activities.map((activity) => (
-        <Activity
-          text={activity.activity__input}
-          id={activity.id}
-          isForGoodWeather={activity.isForGoodWeather}
-        />
+        <article>
+          <p key={activity.id} ClassName="actity__entry">
+            {activity.name}
+          </p>
+          <button onClick={() => onDeleteActivity(activity.id)}>Delete</button>
+        </article>
       ))}
     </div>
   );
